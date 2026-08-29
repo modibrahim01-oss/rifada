@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>رِفادة · من الوعي إلى السفارة</title>
+<meta name="description" content="منصة تدرّب الشباب على التعامل مع الضيوف من هويات مختلفة: قياس، تدريب، محاكاة حية، وشارة سفير معتمد.">
+<meta name="theme-color" content="#072225">
+<meta property="og:title" content="رِفادة">
+<meta property="og:description" content="من الوعي إلى السفارة">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>html,body{margin:0;padding:0;background:#072225}</style>
+</head>
+<body>
+<div dir="rtl" lang="ar" id="app-root">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400..700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+#app-root{
+  --roshan:#0E3B3E;
+  --roshan-deep:#072225;
+  --roshan-mid:#12494C;
+  --stone:#F1E8D9;
+  --stone-2:#E4D8C4;
+  --stone-3:#CFC0A7;
+  --brass:#C89544;
+  --brass-soft:#E2B96F;
+  --clay:#9C4A33;
+  --ink:#0C1A1A;
+  --ink-2:#3E4F4D;
+  --ok:#2F7A5E;
+
+  --fd:"Reem Kufi","IBM Plex Sans Arabic",system-ui,sans-serif;
+  --fb:"IBM Plex Sans Arabic",system-ui,-apple-system,sans-serif;
+  --fm:"IBM Plex Mono",ui-monospace,monospace;
+
+  direction:rtl;
+  text-align:right;
+  font-family:var(--fb);
+  color:var(--stone);
+  background:
+    radial-gradient(1200px 500px at 80% -10%, #14504F 0%, transparent 60%),
+    var(--roshan-deep);
+  min-height:100vh;
+  padding:0 0 80px;
+  -webkit-font-smoothing:antialiased;
+}
+#app-root *{box-sizing:border-box}
+#app-root button{font-family:var(--fb);cursor:pointer}
+#app-root :focus-visible{outline:2px solid var(--brass);outline-offset:3px;border-radius:4px}
+@media (prefers-reduced-motion:reduce){#app-root *{animation:none!important;transition:none!important}}
+
+.wrap{max-width:780px;margin:0 auto;padding:0 20px}
+
+/* ── lattice hairline (roshan motif) ── */
+.lattice{height:14px;width:100%;opacity:.5;
+  background-image:
+    linear-gradient(45deg,transparent 46%,var(--brass) 46%,var(--brass) 54%,transparent 54%),
+    linear-gradient(-45deg,transparent 46%,var(--brass) 46%,var(--brass) 54%,transparent 54%);
+  background-size:14px 14px;}
+
+/* ── header / journey rail ── */
+header{padding:26px 0 0}
+.brandrow{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.brand{font-family:var(--fd);font-size:30px;font-weight:700;color:var(--stone);letter-spacing:.5px;line-height:1}
+.brand em{font-style:normal;color:var(--brass)}
+.tag{font-size:13px;color:#8FAEAB;font-weight:400}
+
+.rail{display:flex;gap:6px;margin:22px 0 8px;border-top:1px solid #1D5A5C;border-bottom:1px solid #1D5A5C;padding:12px 0}
+.station{flex:1;display:flex;flex-direction:column;gap:5px;opacity:.42;transition:opacity .3s;min-width:0}
+.station.on{opacity:1}
+.station.done{opacity:.8}
+.st-n{font-family:var(--fm);font-size:10px;color:var(--brass);letter-spacing:1px}
+.st-l{font-family:var(--fd);font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.st-bar{height:3px;background:#1D5A5C;border-radius:2px;overflow:hidden}
+.st-bar i{display:block;height:100%;width:0;background:var(--brass);transition:width .5s ease}
+.station.done .st-bar i{width:100%}
+.station.on .st-bar i{background:var(--brass-soft)}
+
+/* ── screens ── */
+.screen{display:none;animation:up .45s ease both}
+.screen.live{display:block}
+@keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+.card{background:var(--stone);color:var(--ink);border-radius:16px;padding:26px;margin:18px 0;
+  box-shadow:0 18px 40px -24px #000;border:1px solid var(--stone-3)}
+.card.dim{background:var(--roshan);color:var(--stone);border-color:#1D5A5C;box-shadow:none}
+
+h1{font-family:var(--fd);font-size:clamp(30px,6vw,46px);line-height:1.25;margin:22px 0 12px;font-weight:700}
+h2{font-family:var(--fd);font-size:24px;margin:0 0 10px;font-weight:600;line-height:1.4}
+h3{font-family:var(--fd);font-size:17px;margin:0 0 8px;font-weight:600}
+p{line-height:1.9;margin:0 0 12px;font-size:15.5px}
+.lede{font-size:17px;color:#B9D2CF;line-height:2}
+.card p{color:var(--ink-2)}
+.card.dim p{color:#B9D2CF}
+.muted{color:#7E9895;font-size:13.5px}
+.card .muted{color:#7A8886}
+
+.eyebrow{font-family:var(--fm);font-size:11px;letter-spacing:2px;color:var(--brass);margin-bottom:10px;display:block}
+
+/* ── buttons ── */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;border-radius:10px;
+  padding:13px 26px;font-size:15px;font-weight:600;background:var(--brass);color:#20160A;transition:.18s}
+.btn:hover{background:var(--brass-soft);transform:translateY(-1px)}
+.btn:disabled{opacity:.35;cursor:not-allowed;transform:none}
+.btn.ghost{background:transparent;border:1px solid var(--stone-3);color:var(--stone)}
+.btn.ghost:hover{background:#ffffff12}
+.card .btn.ghost{border-color:var(--stone-3);color:var(--ink)}
+.card .btn.ghost:hover{background:#0000000a}
+.btn.sm{padding:9px 16px;font-size:13.5px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:16px}
+
+input[type=text]{width:100%;padding:14px 16px;border-radius:10px;border:1px solid #2A6668;
+  background:#0B3134;color:var(--stone);font-family:var(--fb);font-size:16px}
+input[type=text]::placeholder{color:#5E807E}
+
+/* ── assessment ── */
+.qmeta{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:#7A8886;margin-bottom:14px}
+.qmeta b{font-family:var(--fm);color:var(--clay);font-weight:500}
+.qtext{font-family:var(--fd);font-size:20px;line-height:1.6;color:var(--ink);margin-bottom:18px;font-weight:500}
+.opt{display:block;width:100%;text-align:right;background:#fff;border:1px solid var(--stone-3);border-radius:11px;
+  padding:14px 16px;margin-bottom:9px;font-size:15px;line-height:1.6;color:var(--ink-2);transition:.15s;font-family:var(--fb)}
+.opt:hover{border-color:var(--brass);background:#FFFBF3;transform:translateX(-3px)}
+.opt.picked{border-color:var(--roshan);background:#E9F1EE;color:var(--ink);font-weight:500}
+.prog{height:4px;background:var(--stone-2);border-radius:3px;overflow:hidden;margin-bottom:18px}
+.prog i{display:block;height:100%;background:var(--roshan);transition:width .35s}
+
+/* ── radar ── */
+.radarbox{display:flex;gap:20px;align-items:center;flex-wrap:wrap;justify-content:center}
+.axlist{flex:1;min-width:220px}
+.axrow{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px dashed var(--stone-2)}
+.axrow:last-child{border:none}
+.axname{font-size:14px;flex:1;color:var(--ink)}
+.axbar{width:82px;height:6px;background:var(--stone-2);border-radius:4px;overflow:hidden}
+.axbar i{display:block;height:100%;background:var(--roshan);border-radius:4px}
+.axbar.low i{background:var(--clay)}
+.axval{font-family:var(--fm);font-size:12px;width:34px;text-align:left;color:var(--ink-2)}
+
+.levelchip{display:inline-flex;align-items:center;gap:9px;background:var(--roshan);color:var(--stone);
+  border-radius:999px;padding:8px 18px;font-family:var(--fd);font-size:17px}
+.levelchip s{width:7px;height:7px;background:var(--brass);border-radius:50%;text-decoration:none}
+
+/* ── training ── */
+.mod{background:var(--stone);color:var(--ink);border:1px solid var(--stone-3);border-radius:14px;margin-bottom:11px;overflow:hidden}
+.mod.gap{border-color:var(--clay);border-width:1.5px}
+.modhead{display:flex;align-items:center;gap:14px;padding:16px 18px;cursor:pointer;user-select:none}
+.modnum{font-family:var(--fm);font-size:11px;color:#fff;background:var(--roshan);width:26px;height:26px;
+  border-radius:7px;display:grid;place-items:center;flex:none}
+.mod.finished .modnum{background:var(--ok)}
+.modtitle{flex:1;font-family:var(--fd);font-size:16.5px;line-height:1.4}
+.modflag{font-size:11px;background:var(--clay);color:#fff;padding:3px 9px;border-radius:999px;flex:none}
+.modbody{display:none;padding:0 18px 20px;border-top:1px dashed var(--stone-3)}
+.mod.open .modbody{display:block}
+.principle{background:#FFFBF2;border-right:3px solid var(--brass);padding:12px 14px;border-radius:0 9px 9px 0;
+  margin:16px 0;font-size:15.5px;line-height:1.8;color:var(--ink)}
+.tool{margin-bottom:13px}
+.tool b{font-family:var(--fd);font-size:15px;display:block;margin-bottom:3px;color:var(--roshan)}
+.tool span{font-size:14.5px;line-height:1.8;color:var(--ink-2)}
+.trap{background:#F7EAE6;border-radius:9px;padding:12px 14px;font-size:14.5px;line-height:1.75;color:#6E3527;margin:14px 0}
+.trap b{color:var(--clay)}
+.drill{background:#E9F1EE;border-radius:9px;padding:12px 14px;font-size:14.5px;line-height:1.75;color:#1E403B}
+.drill b{color:var(--roshan)}
+
+/* ── guests ── */
+.guests{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:11px}
+.guest{background:var(--roshan);border:1px solid #1D5A5C;border-radius:13px;padding:15px;text-align:right;transition:.18s;color:var(--stone)}
+.guest:hover{border-color:var(--brass);transform:translateY(-2px)}
+.guest.picked{border-color:var(--brass);background:var(--roshan-mid)}
+.gname{font-family:var(--fd);font-size:16px;margin-bottom:3px}
+.gfrom{font-size:12px;color:var(--brass-soft);margin-bottom:7px;font-family:var(--fm)}
+.gwhy{font-size:13px;color:#9FBDBA;line-height:1.65}
+
+/* ── chat ── */
+.chat{background:var(--roshan);border:1px solid #1D5A5C;border-radius:16px;overflow:hidden;margin:18px 0}
+.chathead{display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--roshan-mid);border-bottom:1px solid #1D5A5C}
+.av{width:38px;height:38px;border-radius:11px;background:var(--brass);color:#20160A;display:grid;place-items:center;
+  font-family:var(--fd);font-size:17px;flex:none}
+.chathead div{flex:1;min-width:0}
+.chathead .n{font-family:var(--fd);font-size:15.5px}
+.chathead .s{font-size:11.5px;color:#8FAEAB;font-family:var(--fm)}
+.turns{font-family:var(--fm);font-size:11px;color:var(--brass);border:1px solid var(--brass);padding:3px 9px;border-radius:999px}
+.log{padding:16px;max-height:400px;overflow-y:auto;display:flex;flex-direction:column;gap:11px}
+.msg{max-width:82%;padding:11px 15px;border-radius:14px;font-size:14.8px;line-height:1.75;animation:up .3s ease both}
+.msg.g{background:var(--stone);color:var(--ink);border-top-right-radius:4px;align-self:flex-start}
+.msg.u{background:var(--brass);color:#20160A;border-top-left-radius:4px;align-self:flex-end}
+.msg.sys{align-self:center;background:transparent;border:1px dashed #2A6668;color:#8FAEAB;font-size:12.5px;max-width:95%;text-align:center}
+.dots span{display:inline-block;width:6px;height:6px;background:var(--ink-2);border-radius:50%;margin:0 2px;animation:bl 1.2s infinite}
+.dots span:nth-child(2){animation-delay:.2s}.dots span:nth-child(3){animation-delay:.4s}
+@keyframes bl{0%,60%,100%{opacity:.25}30%{opacity:1}}
+.composer{display:flex;gap:9px;padding:13px;border-top:1px solid #1D5A5C;background:var(--roshan-mid)}
+.composer input{flex:1;background:#0B3134}
+
+/* ── evaluation ── */
+.verdict{display:flex;gap:14px;align-items:center;padding:16px;border-radius:13px;margin-bottom:16px}
+.verdict.pass{background:#E4F0EA;color:#1B4A38}
+.verdict.fail{background:#F7EAE6;color:#6E3527}
+.vscore{font-family:var(--fd);font-size:38px;line-height:1;flex:none}
+.quote{border-right:3px solid var(--brass);padding:8px 14px;font-size:15px;line-height:1.85;color:var(--ink-2);margin:12px 0}
+.fixlist li{margin-bottom:14px;line-height:1.8;font-size:14.8px;color:var(--ink-2)}
+.fixlist .alt{display:block;margin-top:5px;background:#E9F1EE;padding:9px 12px;border-radius:8px;color:#1E403B;font-size:14.2px}
+
+/* ── seal / badge ── */
+.sealwrap{display:flex;justify-content:center;margin:8px 0 22px}
+.seal{width:min(340px,86vw)}
+.seal .draw{stroke-dasharray:1400;stroke-dashoffset:1400;animation:draw 2.2s ease forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.certmeta{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+.cm{background:#0B3134;border:1px solid #1D5A5C;border-radius:10px;padding:12px 14px}
+.cm b{display:block;font-family:var(--fm);font-size:10px;letter-spacing:1.5px;color:var(--brass);margin-bottom:5px}
+.cm span{font-size:14.5px;font-family:var(--fd)}
+.locked{text-align:center;padding:36px 20px}
+.checks{max-width:340px;margin:18px auto 0;text-align:right}
+.chk{display:flex;gap:11px;align-items:center;padding:9px 0;font-size:14.5px;color:#8FAEAB}
+.chk s{width:20px;height:20px;border-radius:6px;border:1.5px solid #2A6668;flex:none;text-decoration:none;
+  display:grid;place-items:center;font-size:12px}
+.chk.yes{color:var(--stone)}
+.chk.yes s{background:var(--ok);border-color:var(--ok);color:#fff}
+
+/* ── organizer dashboard ── */
+.dashbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:14px 0 4px}
+.pulse{display:inline-flex;align-items:center;gap:7px;font-family:var(--fm);font-size:11px;color:#8FAEAB;letter-spacing:1px}
+.pulse s{width:7px;height:7px;border-radius:50%;background:var(--ok);text-decoration:none;animation:pl 2.4s infinite}
+@keyframes pl{0%,100%{opacity:1}50%{opacity:.25}}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:16px 0}
+.tile{background:var(--roshan);border:1px solid #1D5A5C;border-radius:13px;padding:15px 14px}
+.tile b{display:block;font-family:var(--fd);font-size:34px;line-height:1;color:var(--stone);margin-bottom:6px}
+.tile span{font-size:12.5px;color:#8FAEAB;line-height:1.5}
+.tile.hi b{color:var(--brass)}
+
+.fn{display:flex;align-items:center;gap:12px;padding:9px 0}
+.fn-l{width:96px;font-size:14px;color:var(--ink);flex:none}
+.fn-t{flex:1;height:26px;background:var(--stone-2);border-radius:7px;overflow:hidden;position:relative}
+.fn-t i{display:block;height:100%;background:var(--roshan);border-radius:7px;transition:width .6s ease}
+.fn-t i.b{background:var(--brass)}
+.fn-v{font-family:var(--fm);font-size:12.5px;color:var(--ink-2);width:74px;text-align:left;flex:none}
+.drop{font-size:12.5px;color:var(--clay);margin-right:108px}
+
+.pair{padding:11px 0;border-bottom:1px dashed var(--stone-2)}
+.pair:last-child{border:none}
+.pair-h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px}
+.pair-h span{font-size:14.5px;color:var(--ink)}
+.delta{font-family:var(--fm);font-size:12.5px;padding:2px 8px;border-radius:999px}
+.delta.up{background:#E4F0EA;color:#1B4A38}
+.delta.dn{background:#F7EAE6;color:#6E3527}
+.delta.na{background:var(--stone-2);color:#7A8886}
+.mini{display:flex;align-items:center;gap:8px;margin-bottom:4px}
+.mini u{width:38px;font-size:11px;color:#7A8886;text-decoration:none;flex:none;font-family:var(--fm)}
+.mini div{flex:1;height:8px;background:var(--stone-2);border-radius:5px;overflow:hidden}
+.mini i{display:block;height:100%;border-radius:5px}
+.mini i.base{background:var(--stone-3)}
+.mini i.perf{background:var(--brass)}
+.mini em{font-family:var(--fm);font-size:11.5px;color:var(--ink-2);width:32px;text-align:left;font-style:normal;flex:none}
+
+.callout{background:var(--roshan);color:var(--stone);border-right:3px solid var(--brass);
+  border-radius:0 12px 12px 0;padding:16px 18px;margin:14px 0}
+.callout b{color:var(--brass-soft)}
+.callout p{color:#B9D2CF;margin:0}
+
+.tblwrap{overflow-x:auto;margin-top:6px;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:560px}
+th{text-align:right;font-family:var(--fm);font-size:10.5px;letter-spacing:1px;color:#7A8886;
+  padding:9px 10px;border-bottom:1.5px solid var(--stone-3);white-space:nowrap;font-weight:500}
+td{padding:11px 10px;border-bottom:1px solid var(--stone-2);color:var(--ink-2);white-space:nowrap}
+tbody tr:hover{background:#FFFBF3}
+.pill{font-size:11.5px;padding:3px 9px;border-radius:999px;display:inline-block}
+.pill.amb{background:var(--roshan);color:var(--brass-soft)}
+.pill.wait{background:var(--stone-2);color:#7A8886}
+.pill.no{background:#F7EAE6;color:#6E3527}
+.nm{color:var(--ink);font-weight:500}
+
+.gaterow{display:flex;gap:9px;max-width:380px}
+.gaterow input{background:#fff;color:var(--ink);border-color:var(--stone-3)}
+.empty{text-align:center;padding:34px 20px;color:#7A8886}
+.empty h3{color:var(--ink)}
+.dashlink{background:none;border:none;color:#4E706E;font-size:12.5px;text-decoration:underline;
+  text-underline-offset:3px;font-family:var(--fb);padding:0}
+.dashlink:hover{color:var(--brass)}
+@media(max-width:560px){.tiles{grid-template-columns:1fr 1fr}.fn-l{width:70px;font-size:12.5px}.drop{margin-right:82px}}
+
+.err{background:#3A1D16;border:1px solid #6E3527;color:#F0C6BA;padding:12px 15px;border-radius:10px;font-size:14px;line-height:1.7;margin:12px 0}
+.foot{text-align:center;margin-top:36px;font-size:12.5px;color:#4E706E;line-height:2}
+@media(max-width:560px){
+  .rail{gap:4px}.st-l{font-size:11.5px}.card{padding:20px}.certmeta{grid-template-columns:1fr}
+  .msg{max-width:90%}
+}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="brandrow">
+    <div class="brand">رِ<em>فادة</em></div>
+    <div class="tag">من الوعي إلى السفارة</div>
+  </div>
+  <nav class="rail" id="rail"></nav>
+</header>
+
+<!-- ══ 0 · WELCOME ══ -->
+<section class="screen live" id="s-welcome">
+  <h1>الضيف يغادر ومعه<br>انطباع اسمه أنت.</h1>
+  <p class="lede">في كل يوم يدخل هذه الأرض آلاف من ثقافات لا تشبهنا. اللقاء بينهم وبيننا يحدث في ثوانٍ — عند إشارة مرور، في مصعد، أمام باب مغلق. رِفادة تدرّبك على تلك الثواني.</p>
+
+  <div class="card">
+    <span class="eyebrow">لماذا هذا الاسم</span>
+    <p><b>الرِّفادة</b> كانت مؤسسة قريش لإطعام الحاج وسقايته — أول نظام ضيافة منظّم عرفته هذه الأرض. لم تكن كرماً عابراً، بل مسؤولية موزّعة ومهارة متوارثة. نعيد بناءها بأدوات هذا الجيل.</p>
+  </div>
+
+  <div class="card dim">
+    <h2>رحلتك في أربع محطات</h2>
+    <p><b style="color:var(--brass-soft)">١ · القياس</b> — ١٥ موقفاً واقعياً تكشف أين أنت فعلاً على خمسة محاور، لا أين تظن نفسك.</p>
+    <p><b style="color:var(--brass-soft)">٢ · التدريب</b> — وحدات قصيرة مرتّبة حسب فجواتك أنت، تبدأ بأضعف محور.</p>
+    <p><b style="color:var(--brass-soft)">٣ · المحاكاة</b> — حوار حي مع ضيف افتراضي له شخصية وحاجة خفية. لن يسهّلها عليك.</p>
+    <p><b style="color:var(--brass-soft)">٤ · الشارة</b> — سفير رِفادة معتمد، برقم وسجل درجات. تُكتسب ولا تُمنح.</p>
+  </div>
+
+  <div class="card">
+    <h3>باسم مَن نسجّل هذه الرحلة؟</h3>
+    <input type="text" id="in-name" placeholder="اكتب اسمك كما تحب أن يظهر على الشارة" maxlength="34" style="background:#fff;color:var(--ink);border-color:var(--stone-3)">
+    <p class="muted" style="margin:12px 0 0">اسمك ونتائجك تظهر لمنظّم المعسكر في لوحة المجموعة، ولا تظهر لبقية المشاركين.</p>
+    <div class="row"><button class="btn" id="go-start">ابدأ القياس</button>
+    <button class="btn ghost sm" id="go-reset" style="display:none">مسح التقدم والبدء من جديد</button></div>
+  </div>
+</section>
+
+<!-- ══ 1 · ASSESSMENT ══ -->
+<section class="screen" id="s-quiz">
+  <h1 style="font-size:32px">المحطة الأولى · القياس</h1>
+  <p class="lede">لا توجد إجابة "صحيحة" واضحة. اختر ما ستفعله فعلاً، لا ما يبدو جميلاً.</p>
+  <div class="card">
+    <div class="prog"><i id="q-prog"></i></div>
+    <div class="qmeta"><span id="q-count"></span><b id="q-axis"></b></div>
+    <div class="qtext" id="q-text"></div>
+    <div id="q-opts"></div>
+    <div class="row"><button class="btn ghost sm" id="q-back">السابق</button></div>
+  </div>
+</section>
+
+<!-- ══ 2 · RESULTS ══ -->
+<section class="screen" id="s-result">
+  <h1 style="font-size:32px">هذه صورتك الآن</h1>
+  <div class="card">
+    <div class="radarbox">
+      <div id="radar"></div>
+      <div class="axlist" id="axlist"></div>
+    </div>
+    <div style="text-align:center;margin-top:20px"><span class="levelchip"><s></s><span id="lvl-name"></span></span>
+      <p class="muted" style="margin-top:10px" id="lvl-desc"></p></div>
+  </div>
+  <div class="card dim">
+    <span class="eyebrow">قراءة النتيجة</span>
+    <div id="readout"></div>
+    <div class="row"><button class="btn" id="go-train">ابدأ التدريب المخصص</button></div>
+  </div>
+</section>
+
+<!-- ══ 3 · TRAINING ══ -->
+<section class="screen" id="s-train">
+  <h1 style="font-size:32px">المحطة الثانية · التدريب</h1>
+  <p class="lede" id="train-lede"></p>
+  <div id="mods"></div>
+  <div class="card dim">
+    <h3>جاهز للمحاكاة؟</h3>
+    <p class="muted" id="train-gate"></p>
+    <div class="row"><button class="btn" id="go-sim">ادخل غرفة المحاكاة</button></div>
+  </div>
+</section>
+
+<!-- ══ 4 · SIM PICK ══ -->
+<section class="screen" id="s-pick">
+  <h1 style="font-size:32px">المحطة الثالثة · المحاكاة</h1>
+  <p class="lede">اختر ضيفك. لكل واحد شخصية وسبب زيارة وحاجة لن يقولها لك. مهمتك أن تكتشفها وتتصرف.</p>
+  <div class="guests" id="guests"></div>
+  <div class="card">
+    <h3>قواعد الغرفة</h3>
+    <p>عندك <b>٨ ردود</b>. الضيف يتفاعل مع أسلوبك — إن أحسنت انفتح، وإن أخطأت انسحب. سيدخل عليك تعقيد غير متوقع في منتصف الحوار. بعد انتهاء الحوار يُقيَّم أداؤك على المحاور الخمسة نفسها، والنجاح من <b>٧٠٪</b>.</p>
+    <div class="row"><button class="btn" id="go-chat" disabled>ادخل الحوار</button></div>
+  </div>
+</section>
+
+<!-- ══ 5 · CHAT ══ -->
+<section class="screen" id="s-chat">
+  <div class="chat">
+    <div class="chathead">
+      <div class="av" id="c-av"></div>
+      <div><div class="n" id="c-name"></div><div class="s" id="c-from"></div></div>
+      <div class="turns" id="c-turns"></div>
+    </div>
+    <div class="log" id="log"></div>
+    <div class="composer">
+      <input type="text" id="c-in" placeholder="اكتب ردك…" autocomplete="off">
+      <button class="btn sm" id="c-send">أرسل</button>
+    </div>
+  </div>
+  <div class="row"><button class="btn ghost sm" id="c-end">أنهِ الحوار الآن واطلب التقييم</button></div>
+  <div id="c-err"></div>
+</section>
+
+<!-- ══ 6 · EVAL ══ -->
+<section class="screen" id="s-eval">
+  <h1 style="font-size:32px">تقييم الأداء</h1>
+  <div id="eval-body"></div>
+</section>
+
+<!-- ══ 7 · BADGE ══ -->
+<section class="screen" id="s-badge"><div id="badge-body"></div></section>
+
+<!-- ══ 8 · DASHBOARD ══ -->
+<section class="screen" id="s-dash">
+  <h1 style="font-size:32px">لوحة المنظّم</h1>
+  <div id="dash-gate">
+    <div class="card">
+      <h3>رمز الدخول</h3>
+      <p class="muted">رمز بسيط يبعد الفضول عن اللوحة. ليس حماية حقيقية — لا تعرض عليها بيانات حساسة.</p>
+      <div class="gaterow"><input type="text" id="gate-in" placeholder="الرمز" autocomplete="off">
+        <button class="btn sm" id="gate-go">ادخل</button></div>
+      <div id="gate-err"></div>
+      <div class="row"><button class="btn ghost sm" id="gate-back">رجوع</button></div>
+    </div>
+  </div>
+  <div id="dash-body" style="display:none"></div>
+</section>
+
+<div class="foot">رِفادة · نموذج أولي بُني في معسكر ابتكار اجتماعي<br>مسار: الشباب والهوية — التعامل مع الضيوف
+<br><button class="dashlink" id="open-dash">لوحة المنظّم</button></div>
+</div>
+</div>
+
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+
+/* ═══ AXES ═══ */
+const AX={
+ identity:{n:"وعي الهوية",d:"أن تعرف قصتك قبل أن تُسأل عنها"},
+ cultural:{n:"الحساسية الثقافية",d:"أن ترى الاختلاف دون أن تحكم عليه"},
+ comm:{n:"التواصل الفعّال",d:"أن تُفهَم حين تنقص اللغة"},
+ host:{n:"الضيافة والمبادرة",d:"أن تتحرك قبل أن يُطلب منك"},
+ crisis:{n:"إدارة المواقف",d:"أن تحتوي الخطأ بدل أن تدافع"}
+};
+const AXK=Object.keys(AX);
+
+/* ═══ 15 SITUATIONAL ITEMS ═══ */
+const Q=[
+{a:"identity",t:"سألك ضيف: «ما الذي يجعل ثقافتكم مختلفة؟» — ماذا تفعل؟",o:[
+ ["أرتبك، الأسئلة الكبيرة تُفقدني الكلام",1],
+ ["أذكر الكرم والضيافة والتاريخ العريق",2],
+ ["أذكر أمثلة من مدينتي وحيّي تحديداً",3],
+ ["أحكي له موقفاً واحداً عشته يجيب سؤاله",4]]},
+{a:"identity",t:"سألك عن عادة تمارسها ولا تعرف سبب وجودها.",o:[
+ ["أرتجل تفسيراً يبدو منطقياً",1],
+ ["أقول «هذي عاداتنا» وأنتقل لموضوع آخر",2],
+ ["أقول بصراحة إني لا أعرف السبب",3],
+ ["أعترف، ثم أبحث معه عن الجواب وأشاركه فضولي",4]]},
+{a:"identity",t:"آخر مرة قرأت أو بحثت عن تاريخ منطقتك أو أصل عادة فيها؟",o:[
+ ["لا أذكر أني فعلت",1],
+ ["في المدرسة، ومن يومها لا",2],
+ ["خلال السنة الماضية مرة أو مرتين",3],
+ ["أتابع الموضوع باستمرار ولدي مصادر أرجع لها",4]]},
+{a:"cultural",t:"قدّمت للضيف طبقاً فأبعده عنه بهدوء دون أن يوضح لماذا.",o:[
+ ["أعتبرها قلة ذوق منه",1],
+ ["ألحّ عليه بلطف حتى يجرّب لقمة",2],
+ ["أسحب الطبق وأصمت",3],
+ ["أسأله إن كان هناك ما يفضّل تجنّبه، وأعرض بديلاً",4]]},
+{a:"cultural",t:"سمعت ضيفاً يقول معلومة غير دقيقة عن بلدك أمام مجموعة.",o:[
+ ["أرد فوراً وبحدة، لا أسكت على هذا",1],
+ ["أتجاهل، لا فائدة من النقاش",2],
+ ["أصحّح المعلومة بهدوء أمام الجميع",3],
+ ["أسأله من أين جاءه هذا الانطباع، ثم أروي تجربتي",4]]},
+{a:"cultural",t:"الضيف يقف قريباً منك أكثر مما تعتاد ويطيل النظر في عينيك.",o:[
+ ["أشعر أن في الأمر وقاحة",1],
+ ["أتراجع خطوة وأتجنّب النظر",2],
+ ["ألاحظ أنها عادة مختلفة وأتأقلم",3],
+ ["أتأقلم، وأترك له أن يحدد المسافة التي يرتاح بها",4]]},
+{a:"comm",t:"الضيف لا يعرف العربية، وإنجليزيتك متوسطة.",o:[
+ ["أرفع صوتي وأتكلم أسرع علّه يفهم",1],
+ ["أضع كل جملة في مترجم الجوال وأريه الشاشة",2],
+ ["أتكلم بجمل قصيرة وببطء",3],
+ ["جمل قصيرة وإشارات، ثم أتأكد أنه فهم بإعادة صياغة ما قلته",4]]},
+{a:"comm",t:"الضيف يحكي لك عن انطباعه عن اليوم. ما الذي يدور في رأسك؟",o:[
+ ["أجهّز ردي التالي وأنتظر دوري",1],
+ ["أستمع وأومئ برأسي",2],
+ ["أستمع وأسأله سؤالاً يكمل حديثه",3],
+ ["ألخّص ما فهمته وأتأكد منه قبل أن أرد",4]]},
+{a:"comm",t:"وقع صمت في المحادثة لعشر ثوانٍ.",o:[
+ ["أحرج وأملؤه بأي كلام",1],
+ ["أنسحب وأفترض أن الحوار انتهى",2],
+ ["أتركه، الصمت ليس مشكلة",3],
+ ["أتركه لحظة ثم أفتح باباً جديداً بسؤال عنه هو",4]]},
+{a:"host",t:"ضيف واقف في ممر ينظر يميناً وشمالاً وفي يده ورقة.",o:[
+ ["أكمل طريقي، إن احتاج سيسأل",1],
+ ["أبطئ وأنتظر أن يبادر هو",2],
+ ["أسأله: «تحتاج مساعدة؟»",3],
+ ["أبادر خلال ثوانٍ، وأمشي معه خطوات بدل أن أشير بيدي",4]]},
+{a:"host",t:"سألته إن كان كل شيء بخير فقال «تمام» — لكن ملامحه تقول غير ذلك.",o:[
+ ["آخذ كلامه كما هو",1],
+ ["أكرر السؤال نفسه مرة أخرى",2],
+ ["أسأله سؤالاً أدق: هل الحرارة مزعجة؟ هل تحتاج استراحة؟",3],
+ ["أعرض عليه خيارين محددين بدل سؤال مفتوح، وأترك له القرار",4]]},
+{a:"host",t:"انتهى اللقاء والضيف على وشك المغادرة.",o:[
+ ["أودّعه وأنصرف",1],
+ ["أقول له «تحت أمرك في أي وقت»",2],
+ ["أسأله إن كان يحتاج شيئاً قبل أن يمشي",3],
+ ["أعطيه وسيلة تواصل ونقطة مرجعية واضحة إن احتاج لاحقاً",4]]},
+{a:"crisis",t:"تصرّفت بحسن نية فأزعجت الضيف دون قصد.",o:[
+ ["أشرح له أني لم أقصد وأن الأمر سوء فهم",1],
+ ["أتجاهل الموقف وأكمل كأن شيئاً لم يكن",2],
+ ["أعتذر بسرعة وأغيّر الموضوع",3],
+ ["أعتذر عن الأثر لا عن النية، وأسأله كيف يفضّل أن أتعامل",4]]},
+{a:"crisis",t:"طلب منك الضيف شيئاً يخالف الأنظمة أو الآداب المحلية.",o:[
+ ["أنفّذ طلبه، هو ضيف ولا أريد إحراجه",1],
+ ["أرفض بشكل قاطع وأشرح أن هذا ممنوع",2],
+ ["أرفض بلطف وأوضح السبب باختصار",3],
+ ["أرفض بلطف، أوضح السبب، وأقدّم له بديلاً يحقق ما يريده",4]]},
+{a:"crisis",t:"ضيف منزعج جداً ويرفع صوته عليك أمام الناس.",o:[
+ ["أرفع صوتي بالمثل، لن أُهان",1],
+ ["أتجمّد ولا أعرف ماذا أفعل",2],
+ ["أهدأ وأستمع حتى يفرغ ما عنده",3],
+ ["أخفض صوتي، أنقله لمكان أهدأ، أستمع، ثم أعرض حلاً محدداً",4]]}
+];
+
+/* ═══ TRAINING MODULES ═══ */
+const MOD={
+identity:{t:"اعرف قصتك قبل أن تُسأل عنها",
+ p:"أنت لا تمثّل خمسة وثلاثين مليون إنسان. أنت تمثّل تجربتك أنت — وهذا أقوى وأصدق.",
+ tools:[
+  ["قاعدة الثلاث قصص","جهّز ثلاث قصص قصيرة: واحدة عن مدينتك، واحدة عن عائلتك، وواحدة عن يوم عادي في حياتك. القصة تُروى ويُعاد سردها، أما المعلومة فتُنسى قبل أن يصل الضيف للمطار."],
+  ["من العام إلى الخاص","بدل «نحن شعب كريم» قل: «جدتي لا تدع أحداً يخرج من بيتها دون أن يشرب شيئاً — حتى عامل التوصيل». الأولى شعار، والثانية دليل."],
+  ["لا أعرف، وسأبحث","الاعتراف بالجهل في تفصيل من ثقافتك يزيد مصداقيتك ولا ينقصها. الضيف يميّز بين من يعرف ومن يرتجل."]],
+ trap:"أن تتحوّل إلى ناطق رسمي — تدافع عن كل شيء وتبرر كل شيء. الدفاع الدائم يجعل الضيف يشك أن هناك ما يُخفى.",
+ drill:"اكتب في ثلاثة أسطر: ما الشيء في ثقافتك الذي تحبه فعلاً ولا تذكره أبداً لأنه «عادي»؟ هذا بالضبط ما لا يعرفه الضيف."},
+
+cultural:{t:"الاختلاف ليس خطأً ينتظر التصحيح",
+ p:"معظم ما تقرأه كوقاحة هو عادة مختلفة، ومعظم ما يقرأه هو كوقاحة هو عادة مختلفة أيضاً.",
+ tools:[
+  ["قاعدة التفسير الثاني","قبل أن تحكم على تصرف، اسأل نفسك: ما تفسير آخر محتمل لهذا؟ الضيف الذي لم يشكرك قد يكون من ثقافة يُعدّ فيها الشكر المفرط تكلّفاً بين المقرّبين."],
+  ["اسأل، لا تفترض","لا تفترض قيوده الغذائية ولا الدينية ولا الجسدية. اسأل سؤالاً مفتوحاً: «هل هناك ما تفضّل تجنّبه؟» — سؤال واحد يوفّر عليك عشر افتراضات."],
+  ["افصل الشخص عن انطباعه","من يحمل صورة نمطية عنك ليس عدواً، بل شخص لم يقابل أحداً مثلك بعد. أنت الآن أول مصدر بشري لديه."]],
+ trap:"«التسامح» المتعالي — أن تتحمّل الاختلاف بدل أن تفضل عنه. الضيف يشعر بالفرق في نبرتك حتى لو كانت كلماتك مهذبة.",
+ drill:"استحضر موقفاً حكمت فيه على شخص بسرعة. اكتب تفسيرين آخرين محتملين لتصرفه. كرر التمرين ثلاث مرات هذا الأسبوع."},
+
+comm:{t:"التواصل حين تنقص الكلمات",
+ p:"الضيف لا يعاني ضعف سمع، بل اختلاف لغة. الحل في البطء والبنية، لا في الصوت.",
+ tools:[
+  ["سبع كلمات","اجعل جملك سبع كلمات أو أقل. «وين تبي تروح بعدين؟» تُفهم، أما «كنت أفكر إذا ما عندك مانع نمر على مكان قريب» فلا."],
+  ["أغلق الحلقة","لا تفترض أنه فهم لأنه أومأ. قل: «عشان أتأكد إني فهمت — تبي…؟» الإيماءة أدب في كثير من الثقافات، ليست تأكيداً."],
+  ["المترجم أداة لا وسيط","استخدم الترجمة عند الحاجة فقط، وانظر إلى الضيف لا إلى الشاشة. تواصل العين نصف الرسالة."],
+  ["البطء أهم من الصوت","خفّض سرعتك ٣٠٪ وأبقِ نبرتك كما هي. رفع الصوت يجعل الموقف يبدو توبيخاً."]],
+ trap:"استخدام مصطلحات محلية بلا سياق: «عزيمة»، «قهوة عربية»، «مجلس». اشرحها بأثرها لا باسمها.",
+ drill:"اشرح «العزيمة» لشخص لا يعرف السياق، في ثلاث جمل، بلا مصطلح واحد غير مترجم. ثم اقرأها بصوت عالٍ وقس الوقت — إن تجاوز ٢٠ ثانية اختصرها."},
+
+host:{t:"الضيافة مبادرة لا انتظار",
+ p:"الضيف الحائر لن يطلب المساعدة غالباً — خوفاً من الإزعاج أو من كسر اللغة. المبادرة مسؤوليتك أنت.",
+ tools:[
+  ["نافذة الثلاث ثوانٍ","إذا لاحظت حيرة، تحرّك خلال ثلاث ثوانٍ. بعدها يشعر الضيف أنه صار مُلاحَظاً، ويصعب عليه القبول."],
+  ["خياران بدل سؤال مفتوح","«تحب نمشي أو نجلس؟» أسهل بكثير من «وش تحب تسوي؟». السؤال المفتوح يحمّل الضيف عبء القرار في مكان لا يعرفه."],
+  ["امشِ معه، لا تشر بيدك","«يمين ثم يسار ثم تسأل» ضاعت قبل أن تنتهي. عشر خطوات معه تساوي عشرين توجيهاً."],
+  ["أغلق بنقطة رجوع","قبل الوداع: نقطة تواصل واضحة ومكان يجدك فيه. الأمان يأتي من معرفة الضيف أن له باباً يطرقه."]],
+ trap:"الكرم الذي يسلب القرار — الإلحاح في الطعام، رفض أن يدفع، حجز وقته كله. الكرم الحقيقي يوسّع خيارات الضيف لا يضيّقها.",
+ drill:"اختر جملة مبادرة واحدة، وقلها بصوت واضح عشر مرات حتى تخرج بلا تردد. التردد هو ما يمنع المبادرة، لا الجهل."},
+
+crisis:{t:"حين يسوء الموقف",
+ p:"معالجة الموقف أهم من إثبات أنك لم تخطئ. الأولى تُنقذ العلاقة، والثانية تُنهيها.",
+ tools:[
+  ["تسلسل الاحتواء","اهدأ ← استمع حتى النهاية ← اعتذر عن الأثر ← اعرض حلاً محدداً ← تابع بعدها. لا تقفز خطوة، خصوصاً «استمع»."],
+  ["اعتذر عن الأثر لا عن النية","«آسف أن هذا أزعجك» تُغلق الموقف. «ما كان قصدي» تفتح جدالاً عن نواياك، والضيف لا يعرف نواياك أصلاً."],
+  ["نبرتك معدية","خفض صوتك درجتين يخفض صوته درجة. رفعه يرفعه درجتين. أنت تتحكم بمستوى الغرفة أكثر مما تظن."],
+  ["ارفض ومعك بديل","«هذا لا يمكن، لكن يمكنني…» — الرفض المجرّد يُقرأ إهانة، والرفض ومعه بديل يُقرأ حرصاً."],
+  ["اعرف حدّك","حين يتجاوز الموقف صلاحيتك، نقله لمن يملكها ليس فشلاً. الفشل هو محاولة إدارة ما لا تملك أدواته."]],
+ trap:"الدفاع عن النفس في اللحظة الأولى. كل جملة تبدأ بـ«بس أنا…» تؤجل الحل دقيقة كاملة.",
+ drill:"صُغ ثلاث جمل رفض مهذّب، كل واحدة تنتهي ببديل عملي. احفظها — لن يكون عندك وقت لصياغتها في اللحظة."}
+};
+
+/* ═══ GUEST PROFILES ═══ */
+const GUESTS=[
+{id:"yuki",n:"يوكي تاناكا",f:"اليابان · ٣٤ سنة",av:"ي",
+ why:"مهندسة في زيارة عمل أولى. مهذّبة جداً ولا تطلب شيئاً مباشرة.",
+ persona:"يوكي تاناكا، مهندسة يابانية عمرها ٣٤ سنة، أول زيارة للمملكة في مهمة عمل مدتها ٣ أيام. شخصيتك: مهذبة للغاية، متحفّظة، تعتذر كثيراً، تتجنّب إحراج الآخرين بأي طلب. تقولين «نعم» و«تمام» حتى حين لا تكونين مرتاحة. تتحدثين إنجليزية جيدة وعربية شبه معدومة (تعرفين فقط: شكراً، السلام عليكم، طيب).",
+ need:"حاجتك الخفية: عندك اجتماع مهم بعد ساعتين ولا تفهمين لماذا تُغلق المحلات فجأة في أوقات معينة، وتخشين أن تتأخري أو أن تسألي سؤالاً يبدو جاهلاً أو غير محترم. لن تقولي هذا إلا إذا شعرتِ بأمان حقيقي وسُئلتِ بلطف وبشكل غير مباشر.",
+ comp:"تنظرين إلى ساعتك بقلق واضح وتقولين إن كل شيء بخير بينما هو ليس كذلك."},
+
+{id:"lukas",n:"لوكاس ماير",f:"ألمانيا · ٢٨ سنة",av:"ل",
+ why:"صحفي رحّالة. يسأل أسئلة مباشرة وحادة، ولا يقبل الإجابات الجاهزة.",
+ persona:"لوكاس ماير، صحفي مستقل ألماني عمره ٢٨ سنة، يكتب عن المدن المتغيّرة. شخصيتك: صريح إلى حد الصدمة، مباشر، تعتبر المجاملة نوعاً من إخفاء الحقيقة، وتحترم من يجادلك بصدق. تتحدث عربية بسيطة مكسّرة وتخلط الإنجليزية.",
+ need:"حاجتك الخفية: أنت لا تريد استفزاز أحد، أنت تريد إجابة إنسانية صادقة بدل نشرة سياحية. ستزيد ضغطك إذا شعرت أن من أمامك يردد كلاماً محفوظاً، وستلين فوراً وتحترمه إذا اعترف بتعقيد الأمور أو قال «هذا رأيي أنا لا رأي بلدي».",
+ comp:"تذكر أنك قرأت مقالاً ينتقد شيئاً في المجتمع، وتسأل بشكل مباشر: هل هذا صحيح؟"},
+
+{id:"amina",n:"أمينة ديالو",f:"السنغال · ٤٥ سنة",av:"أ",
+ why:"معتمرة لأول مرة. انفصلت عن مجموعتها ولا تجيد إلا الفرنسية.",
+ persona:"أمينة ديالو، امرأة سنغالية عمرها ٤٥ سنة، أول عمرة في حياتها، ادّخرت لها سنوات. شخصيتك: متوترة جداً الآن، تتحدثين الفرنسية والولوف، وعربيتك محدودة جداً (تعرفين كلمات الصلاة وبعض الكلمات: مجموعة، فندق، ضاع، أين، ساعدني). تكرّرين الكلمات وتخلطين الفرنسية حين يشتد قلقك.",
+ need:"حاجتك الخفية: قبل الحل اللوجستي، أنتِ تحتاجين إلى طمأنة إنسانية — أن يبطئ أحد ويهدّئك ويؤكد أنك لست وحدك. من يقفز مباشرة إلى «وش اسم فندقك؟» يزيد قلقك. من يهدّئك أولاً تتذكّرين معه التفاصيل.",
+ comp:"تكتشفين أن جوالك نفدت بطاريته، وفيه رقم مرشد المجموعة."},
+
+{id:"sofia",n:"صوفيا ريستريبو",f:"كولومبيا · ٢٤ سنة",av:"ص",
+ why:"صانعة محتوى متحمّسة. تصوّر كل شيء دون أن تعرف الحدود.",
+ persona:"صوفيا ريستريبو، صانعة محتوى كولومبية عمرها ٢٤ سنة، جاءت لتوثّق رحلتها. شخصيتك: طاقة عالية جداً، ودودة، سريعة الكلام، حسنة النية تماماً، لكنك ترفعين الكاميرا تلقائياً على كل شيء ــ بما في ذلك وجوه الناس والعائلات. تتحدثين إنجليزية وإسبانية وعربية قليلة جداً.",
+ need:"حاجتك الخفية: أنت تخافين أن تُعتبري غير محترمة، ولا تعرفين القواعد أصلاً. من يمنعك بجفاء ستنسحبين منه وتشعرين بالإهانة. من يوجّهك ويعرض عليك بديلاً تصويرياً أفضل ستتحمّسين له وتلتزمين فوراً.",
+ comp:"توجّهين الكاميرا نحو عائلة تجلس قريباً وتسألين إن كان بإمكانك مشاركة اللقطة."},
+
+{id:"rajesh",n:"راجيش كومار",f:"الهند · ٥٢ سنة",av:"ر",
+ why:"مقيم منذ ١٩ سنة. يتوقع أن تعامله كخادم لا كضيف.",
+ persona:"راجيش كومار، فنّي هندي عمره ٥٢ سنة، يعيش ويعمل في المملكة منذ ١٩ سنة. شخصيتك: عربيتك جيدة بلهجة واضحة، هادئ، مهذّب، لكنك معتاد أن يخاطبك الناس بأوامر مختصرة ولا يسألك أحد عن نفسك. تجاوبك مقتضب في البداية وتتوقع أن الحديث سينتهي بسرعة. تتفاجأ فعلاً إذا سُئلت سؤالاً شخصياً باهتمام حقيقي، وتنفتح تدريجياً وتحكي عن بناتك في كيرلا.",
+ need:"حاجتك الخفية: أنت لا تحتاج خدمة، تحتاج أن يُنظر إليك كإنسان له تاريخ في هذا المكان — تسعة عشر عاماً من عمرك هنا. الاعتراف بأنك جزء من هذه المدينة هو ما يفتحك.",
+ comp:"يمر شخص وينادي عليك بـ«يا هندي» ليطلب منك شيئاً، أمام المتدرب."},
+
+{id:"ethan",n:"إيثان براون",f:"الولايات المتحدة · ١٩ سنة",av:"إ",
+ why:"طالب تبادل متحمّس. يرتكب أخطاء اجتماعية بحسن نية.",
+ persona:"إيثان براون، طالب أمريكي عمره ١٩ سنة في برنامج تبادل، أول أسبوع له. شخصيتك: متحمّس جداً، ودود، فضولي، لكنك ترتكب أخطاء اجتماعية بلا وعي: تسأل عن الراتب، تعلّق على أشياء شخصية، تمد يدك للمصافحة في مواقف غير مناسبة، تصوّر بلا استئذان. عربيتك كلمات معدودة تنطقها بحماس زائد.",
+ need:"حاجتك الخفية: أنت تريد أن تُصحَّح — أنت واعٍ أنك ستخطئ وتفضّل أن يخبرك أحد بدل أن يضحك عليك أو يتجنّبك. من يصحّحك بلطف وبلا إحراج ستحبه وتلتزم بما يقول.",
+ comp:"تسأل المتدرب سؤالاً شخصياً مباشراً غير لائق، بحماس وبراءة تامة."}
+];
+
+/* ═══ STATE ═══ */
+const KEY="rifada:v1";
+let S={uid:null,name:"",qi:0,ans:{},scores:null,overall:0,done:[],guest:null,msgs:[],turns:0,eval:null,badge:null,stage:0};
+const canStore=true;
+async function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+async function load(){try{const r=localStorage.getItem(KEY);return r?JSON.parse(r):null}catch(e){return null}}
+
+/* ─ shared cohort record: written at milestones only, never per keystroke ─ */
+const PKEY=()=>"p:"+S.uid;
+async function publish(){
+ if(!canStore||!S.uid)return;
+ const rec={uid:S.uid,name:S.name,ts:Date.now(),
+  baseline:S.scores?{overall:S.overall,scores:S.scores}:null,
+  modules:S.done.slice(),
+  sim:S.eval?{guest:S.guest,overall:S.eval.overall,scores:S.eval.scores,passed:!!S.eval.passed}:null,
+  badge:S.badge?S.badge.id:null};
+ try{await fetch("/api/cohort",{method:"POST",
+  headers:{"content-type":"application/json"},body:JSON.stringify(rec)})}catch(e){}
+}
+
+/* ═══ RAIL ═══ */
+const STATIONS=[["٠١","القياس"],["٠٢","التدريب"],["٠٣","المحاكاة"],["٠٤","الشارة"]];
+function rail(){
+ $("rail").innerHTML=STATIONS.map((s,i)=>
+  `<div class="station ${i===S.stage?'on':''} ${i<S.stage?'done':''}">
+    <span class="st-n">${s[0]}</span><span class="st-l">${s[1]}</span>
+    <span class="st-bar"><i style="width:${i<S.stage?100:(i===S.stage?45:0)}%"></i></span></div>`).join("");
+}
+function show(id,stage){
+ document.querySelectorAll("#app-root .screen").forEach(e=>e.classList.remove("live"));
+ $(id).classList.add("live");
+ if(stage!==undefined)S.stage=stage;
+ rail();window.scrollTo({top:0,behavior:"smooth"});save();
+}
+
+/* ═══ WELCOME ═══ */
+$("go-start").onclick=()=>{
+ const v=$("in-name").value.trim();
+ if(!v){$("in-name").focus();$("in-name").style.borderColor="#9C4A33";return;}
+ S.name=v;
+ if(!S.uid)S.uid=Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+ show("s-quiz",0);renderQ();
+};
+$("in-name").addEventListener("keydown",e=>{if(e.key==="Enter")$("go-start").click()});
+$("go-reset").onclick=()=>{try{localStorage.removeItem(KEY)}catch(e){}location.reload()};
+
+/* ═══ ASSESSMENT ═══ */
+function renderQ(){
+ const q=Q[S.qi];
+ $("q-prog").style.width=(S.qi/Q.length*100)+"%";
+ $("q-count").textContent=`الموقف ${S.qi+1} من ${Q.length}`;
+ $("q-axis").textContent=AX[q.a].n;
+ $("q-text").textContent=q.t;
+ $("q-opts").innerHTML=q.o.map((o,i)=>
+  `<button class="opt ${S.ans[S.qi]===i?'picked':''}" data-i="${i}">${o[0]}</button>`).join("");
+ $("q-opts").querySelectorAll(".opt").forEach(b=>b.onclick=()=>{
+  S.ans[S.qi]=+b.dataset.i;
+  $("q-opts").querySelectorAll(".opt").forEach(x=>x.classList.remove("picked"));
+  b.classList.add("picked");
+  setTimeout(()=>{S.qi<Q.length-1?(S.qi++,renderQ()):finishQuiz()},240);
+ });
+ $("q-back").style.visibility=S.qi?"visible":"hidden";
+}
+$("q-back").onclick=()=>{if(S.qi){S.qi--;renderQ()}};
+
+function finishQuiz(){
+ const sum={},cnt={};AXK.forEach(k=>{sum[k]=0;cnt[k]=0});
+ Q.forEach((q,i)=>{const pick=S.ans[i]??0;sum[q.a]+=q.o[pick][1];cnt[q.a]++});
+ S.scores={};AXK.forEach(k=>{S.scores[k]=Math.round((sum[k]-cnt[k])/(cnt[k]*3)*100)});
+ S.overall=Math.round(AXK.reduce((a,k)=>a+S.scores[k],0)/AXK.length);
+ renderResult();show("s-result",0);publish();
+}
+
+const LEVELS=[[0,"مُستكشِف","بدايتك من هنا. الوعي بالفجوة نصف المهارة."],
+ [45,"مُرافِق","تتصرف بحسن نية، وتحتاج أدوات تحوّلها إلى أثر."],
+ [65,"مُضياف","أساسك متين. التدريب سيشتغل على الحواف لا الأساس."],
+ [82,"مرشّح للسفارة","أداؤك متقدم. المحاكاة هي ما يفصل بينك وبين الشارة."]];
+function levelOf(v){let L=LEVELS[0];LEVELS.forEach(l=>{if(v>=l[0])L=l});return L}
+
+function radarSVG(sc){
+ const cx=110,cy=108,R=82,N=5;
+ const pt=(i,r)=>{const a=-Math.PI/2+i*2*Math.PI/N;return[cx+r*Math.cos(a),cy+r*Math.sin(a)]};
+ let g="";
+ [.25,.5,.75,1].forEach(f=>{
+  const p=Array.from({length:N},(_,i)=>pt(i,R*f).join(",")).join(" ");
+  g+=`<polygon points="${p}" fill="none" stroke="#CFC0A7" stroke-width="1" ${f===1?'':'stroke-dasharray="2 3"'}/>`;});
+ for(let i=0;i<N;i++){const[x,y]=pt(i,R);g+=`<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="#CFC0A7" stroke-width="1"/>`}
+ const dp=AXK.map((k,i)=>pt(i,R*Math.max(sc[k],4)/100).join(",")).join(" ");
+ g+=`<polygon points="${dp}" fill="#0E3B3E" fill-opacity=".22" stroke="#0E3B3E" stroke-width="2.5" stroke-linejoin="round"/>`;
+ AXK.forEach((k,i)=>{const[x,y]=pt(i,R*Math.max(sc[k],4)/100);
+  g+=`<circle cx="${x}" cy="${y}" r="4" fill="${sc[k]<50?'#9C4A33':'#C89544'}" stroke="#F1E8D9" stroke-width="1.5"/>`});
+ return `<svg width="220" height="216" viewBox="0 0 220 216" aria-label="مخطط المحاور الخمسة">${g}</svg>`;
+}
+
+function renderResult(){
+ $("radar").innerHTML=radarSVG(S.scores);
+ $("axlist").innerHTML=AXK.map(k=>{
+  const v=S.scores[k];
+  return `<div class="axrow"><span class="axname">${AX[k].n}</span>
+   <span class="axbar ${v<50?'low':''}"><i style="width:${v}%"></i></span>
+   <span class="axval">${v}٪</span></div>`}).join("");
+ const L=levelOf(S.overall);
+ $("lvl-name").textContent=`${L[1]} · ${S.overall}٪`;
+ $("lvl-desc").textContent=L[2];
+ const sorted=[...AXK].sort((a,b)=>S.scores[a]-S.scores[b]);
+ const weak=sorted[0],strong=sorted[4];
+ $("readout").innerHTML=
+  `<p>أقوى ما لديك <b style="color:var(--brass-soft)">${AX[strong].n}</b> — ${AX[strong].d}. ابنِ عليه، فهو مدخلك في أي لقاء.</p>
+   <p>وأكبر فجوة عندك <b style="color:#E39B85">${AX[weak].n}</b> — ${AX[weak].d}. سيبدأ تدريبك من هنا، وهذا المحور تحديداً هو ما سيختبره الضيف الافتراضي عليك.</p>
+   <p class="muted">القياس أداة توجيه لا حكم. الفجوة هنا تعني أن أدواتك في هذا المحور غير مكتملة، لا أن نيّتك سيئة.</p>`;
+}
+$("go-train").onclick=()=>{renderMods();show("s-train",1)};
+
+/* ═══ TRAINING ═══ */
+function renderMods(){
+ const order=[...AXK].sort((a,b)=>S.scores[a]-S.scores[b]);
+ const weak=order[0];
+ $("train-lede").innerHTML=`رُتّبت الوحدات حسب نتيجتك — الأضعف أولاً. ابدأ بـ<b>${AX[weak].n}</b>.`;
+ $("mods").innerHTML=order.map((k,i)=>{
+  const m=MOD[k],gap=S.scores[k]<60,fin=S.done.includes(k);
+  return `<div class="mod ${gap?'gap':''} ${fin?'finished':''}" data-k="${k}">
+   <div class="modhead"><span class="modnum">${fin?'✓':i+1}</span>
+    <span class="modtitle">${m.t}</span>
+    ${gap?'<span class="modflag">فجوة</span>':''}
+    <span class="muted" style="font-family:var(--fm);font-size:12px">${S.scores[k]}٪</span></div>
+   <div class="modbody">
+    <div class="principle">${m.p}</div>
+    ${m.tools.map(t=>`<div class="tool"><b>${t[0]}</b><span>${t[1]}</span></div>`).join("")}
+    <div class="trap"><b>الفخ الشائع:</b> ${m.trap}</div>
+    <div class="drill"><b>تمرين خمس دقائق:</b> ${m.drill}</div>
+    <div class="row"><button class="btn sm mark" data-k="${k}">${fin?'أنهيتها':'أنهيت هذه الوحدة'}</button></div>
+   </div></div>`}).join("");
+
+ $("mods").querySelectorAll(".modhead").forEach(h=>h.onclick=()=>h.parentElement.classList.toggle("open"));
+ $("mods").querySelectorAll(".mark").forEach(b=>b.onclick=e=>{
+  e.stopPropagation();
+  if(!S.done.includes(b.dataset.k))S.done.push(b.dataset.k);
+  renderMods();gate();save();publish();
+ });
+ gate();
+}
+function gate(){
+ const n=S.done.length,ok=n>=3;
+ $("go-sim").disabled=!ok;
+ $("train-gate").innerHTML=ok
+  ?`أنهيت ${n} من ٥ وحدات. الباب مفتوح — لكن الوحدات المتبقية هي ما سيسألك عنه الضيف.`
+  :`أنهِ ٣ وحدات على الأقل قبل دخول المحاكاة. أنهيت <b>${n}</b> حتى الآن.`;
+}
+$("go-sim").onclick=()=>{renderGuests();show("s-pick",2)};
+
+/* ═══ GUEST PICK ═══ */
+function renderGuests(){
+ $("guests").innerHTML=GUESTS.map(g=>
+  `<button class="guest ${S.guest===g.id?'picked':''}" data-id="${g.id}">
+   <div class="gname">${g.n}</div><div class="gfrom">${g.f}</div><div class="gwhy">${g.why}</div></button>`).join("");
+ $("guests").querySelectorAll(".guest").forEach(b=>b.onclick=()=>{
+  S.guest=b.dataset.id;renderGuests();$("go-chat").disabled=false;save();
+ });
+ $("go-chat").disabled=!S.guest;
+}
+$("go-chat").onclick=()=>{startChat()};
+
+/* ═══ CHAT ═══ */
+const G=()=>GUESTS.find(x=>x.id===S.guest);
+let busy=false;
+function startChat(){
+ S.msgs=[];S.turns=0;S.eval=null;
+ const g=G();
+ $("c-av").textContent=g.av;$("c-name").textContent=g.n;$("c-from").textContent=g.f;
+ $("log").innerHTML="";
+ addMsg("sys",`أنت الآن أمام ${g.n}. عندك ٨ ردود. ابدأ.`);
+ show("s-chat",2);
+ updTurns();
+ $("c-in").focus();
+ askGuest(true);
+}
+function updTurns(){$("c-turns").textContent=`${8-S.turns} / ٨ ردود`}
+function addMsg(role,text){
+ const d=document.createElement("div");
+ d.className="msg "+(role==="guest"?"g":role==="user"?"u":"sys");
+ d.textContent=text;$("log").appendChild(d);$("log").scrollTop=$("log").scrollHeight;return d;
+}
+function typing(){
+ const d=document.createElement("div");d.className="msg g dots";
+ d.innerHTML="<span></span><span></span><span></span>";
+ $("log").appendChild(d);$("log").scrollTop=$("log").scrollHeight;return d;
+}
+function sysPrompt(){
+ const g=G();
+ return `أنت تؤدي دور ضيف زائر للمملكة العربية السعودية داخل تدريب محاكاة لشاب سعودي اسمه ${S.name} يتدرّب ليصبح "سفير ضيافة".
+
+الشخصية التي تؤديها:
+${g.persona}
+
+${g.need}
+
+قواعد الأداء — التزم بها حرفياً:
+1. ابقَ داخل الشخصية دائماً. لا تكسر الدور مهما حدث. إذا طلب المتدرب تلميحاً أو خرج عن السياق أو سألك عن كونك ذكاءً اصطناعياً، رُدّ كما يرد ضيف حقيقي محتار أو لم يفهم.
+2. ردودك قصيرة: من جملة إلى ثلاث جمل. هذه محادثة واقعية، ليست خطاباً.
+3. تحدّث بالمستوى اللغوي المذكور في شخصيتك — عربية مكسّرة أو بسيطة بحسب الشخصية، مع إدخال كلمات من لغتك الأم أو الإنجليزية حين يناسب.
+4. لا تكشف حاجتك الخفية مباشرة أبداً. دع المتدرب يكتشفها بالملاحظة والسؤال الجيد. إن سألك سؤالاً سطحياً، أجب سطحياً.
+5. تفاعل مع أسلوبه بواقعية: إن أحسن معاملتك انفتحتَ تدريجياً؛ وإن أخطأ أو تعجّل أو حكم عليك، أظهر ردة فعل واقعية — صمت، انسحاب، إحراج، جفاء — دون مبالغة درامية.
+6. في ردّك الرابع أو الخامس تقريباً، أدخل هذا التعقيد بشكل طبيعي: ${g.comp}
+7. لا تقيّم المتدرب ولا تنصحه ولا تشرح له ما كان عليه فعله. أنت ضيف فقط.
+8. اكتب نصاً عادياً بلا علامات تنسيق وبلا وصف حركات بين أقواس، إلا وصفاً قصيراً جداً بين قوسين عند الحاجة القصوى.`;
+}
+async function api(messages,system,maxT){
+ const r=await fetch("/api/claude",{
+  method:"POST",headers:{"content-type":"application/json"},
+  body:JSON.stringify({max_tokens:maxT||1000,system,messages})});
+ const d=await r.json().catch(()=>({}));
+ if(!r.ok)throw new Error(d.error||("HTTP "+r.status));
+ return (d.content||[]).filter(c=>c.type==="text").map(c=>c.text).join("\n").trim();
+}
+async function askGuest(first){
+ if(busy)return;busy=true;$("c-err").innerHTML="";
+ const t=typing();
+ try{
+  const msgs=first
+   ?[{role:"user",content:"(المتدرب اقترب منك للتو ولم يتكلم بعد. ابدأ أنت بجملة قصيرة جداً أو تصرّف يعكس حالتك، بما لا يتجاوز جملتين.)"}]
+   :S.msgs.map(m=>({role:m.r,content:m.c}));
+  const out=await api(msgs,sysPrompt(),400);
+  t.remove();addMsg("guest",out);
+  S.msgs.push({r:"assistant",c:out});save();
+ }catch(e){
+  t.remove();
+  $("c-err").innerHTML=`<div class="err">تعذّر الوصول إلى الضيف الافتراضي. تحقّق من الاتصال ثم أعد المحاولة — سجلّ الحوار محفوظ.</div>`;
+ }
+ busy=false;
+}
+async function send(){
+ const v=$("c-in").value.trim();
+ if(!v||busy||S.turns>=8)return;
+ $("c-in").value="";
+ addMsg("user",v);S.msgs.push({r:"user",c:v});
+ S.turns++;updTurns();save();
+ if(S.turns>=8){
+  await askGuest(false);
+  addMsg("sys","انتهت ردودك الثمانية. جارٍ تقييم أدائك…");
+  setTimeout(evaluate,900);
+ }else await askGuest(false);
+}
+$("c-send").onclick=send;
+$("c-in").addEventListener("keydown",e=>{if(e.key==="Enter")send()});
+$("c-end").onclick=()=>{if(S.msgs.filter(m=>m.r==="user").length<2){$("c-err").innerHTML='<div class="err">الحوار قصير جداً للتقييم. أرسل ردّين على الأقل.</div>';return}evaluate()};
+
+/* ═══ EVALUATION ═══ */
+const EVSYS=`أنت مقيّم خبير في مهارات الضيافة والتواصل بين الثقافات، تعمل ضمن منصة تدريب اسمها "رِفادة".
+ستُعطى نص حوار بين متدرّب سعودي وضيف افتراضي. قيّم أداء المتدرّب فقط.
+
+قيّمه على خمسة محاور، كل محور من 0 إلى 100:
+- identity: وعي الهوية — هل قدّم نفسه وثقافته بأمثلة محددة بدل شعارات؟ هل كان صادقاً حين لم يعرف؟
+- cultural: الحساسية الثقافية — هل تجنّب الافتراض والحكم؟ هل قرأ الاختلاف كاختلاف لا كخطأ؟
+- comm: التواصل — وضوح، جمل قصيرة، إصغاء، تأكيد الفهم، أسئلة متابعة جيدة.
+- host: الضيافة والمبادرة — هل بادر قبل أن يُطلب؟ هل قدّم خيارات محددة؟ هل أغلق بنقطة رجوع؟
+- crisis: إدارة الموقف — كيف تعامل مع التعقيد المفاجئ؟ هل احتوى بدل أن يدافع؟
+
+كن صارماً وعادلاً. لا تجامل. الدرجة 70 تعني أداءً كفؤاً فعلاً لا مجرد محاولة مهذبة. حوار قصير أو سطحي لا يستحق درجات عالية.
+
+أعد ردك بصيغة JSON فقط، بلا أي نص قبله أو بعده وبلا علامات markdown:
+{"scores":{"identity":0,"cultural":0,"comm":0,"host":0,"crisis":0},
+"overall":0,
+"passed":true,
+"highlight":"أفضل لحظة في أداء المتدرب مع اقتباس قصير جداً من كلامه",
+"strengths":["نقطة قوة محددة","نقطة قوة محددة"],
+"improvements":[{"point":"ما الذي فاته أو أخطأ فيه تحديداً","alternative":"الجملة البديلة التي كان يمكن أن يقولها، بصيغة مباشرة"}],
+"guestVerdict":"جملة أو جملتان بلسان الضيف نفسه يصف بها شعوره بعد اللقاء"}
+
+overall هو متوسط المحاور الخمسة. passed تكون true فقط إذا كان overall أكبر من أو يساوي 70. اكتب كل النصوص بالعربية. أعطِ من 2 إلى 4 عناصر في improvements.`;
+
+async function evaluate(){
+ if(busy)return;busy=true;
+ show("s-eval",2);
+ $("eval-body").innerHTML=`<div class="card"><p style="text-align:center;margin:0">جارٍ مراجعة الحوار على المحاور الخمسة…</p></div>`;
+ const g=G();
+ const script=S.msgs.map(m=>(m.r==="user"?`المتدرب (${S.name}): `:`الضيف (${g.n}): `)+m.c).join("\n");
+ try{
+  let raw=await api([{role:"user",content:`الضيف: ${g.n} — ${g.why}\nحاجته الخفية: ${g.need}\n\nنص الحوار:\n${script}\n\nقيّم أداء المتدرب.`}],EVSYS,1600);
+  raw=raw.replace(/```json|```/g,"").trim();
+  const j=raw.slice(raw.indexOf("{"),raw.lastIndexOf("}")+1);
+  S.eval=JSON.parse(j);
+  if(S.eval.passed)S.badge=S.badge||mkBadge();
+  save();publish();renderEval();
+ }catch(e){
+  $("eval-body").innerHTML=`<div class="err">تعذّر إنهاء التقييم. سجلّ الحوار محفوظ — أعد المحاولة.</div>
+   <div class="row"><button class="btn" onclick="location.hash='';">أعد المحاولة</button></div>`;
+  $("eval-body").querySelector("button").onclick=()=>{busy=false;evaluate()};
+ }
+ busy=false;
+}
+function renderEval(){
+ const e=S.eval,p=e.passed;
+ $("eval-body").innerHTML=`
+ <div class="card">
+  <div class="verdict ${p?'pass':'fail'}">
+   <div class="vscore">${e.overall}٪</div>
+   <div><h3 style="margin:0 0 3px">${p?"اجتزت المحاكاة":"لم تجتز — بعد"}</h3>
+   <span style="font-size:14px">${p?"أداؤك بلغ عتبة السفارة.":"العتبة ٧٠٪. الحوار القادم يبدأ من حيث توقفت."}</span></div>
+  </div>
+  <div class="radarbox">
+   <div>${radarSVG(e.scores)}</div>
+   <div class="axlist">${AXK.map(k=>{const v=e.scores[k]??0;
+    return `<div class="axrow"><span class="axname">${AX[k].n}</span>
+    <span class="axbar ${v<70?'low':''}"><i style="width:${v}%"></i></span>
+    <span class="axval">${v}٪</span></div>`}).join("")}</div>
+  </div>
+ </div>
+
+ <div class="card">
+  <span class="eyebrow">بلسان الضيف</span>
+  <div class="quote">${e.guestVerdict||"—"}</div>
+ </div>
+
+ <div class="card">
+  <h3>أفضل لحظة لك</h3><p>${e.highlight||"—"}</p>
+  <h3 style="margin-top:18px">ما نجح</h3>
+  <ul class="fixlist">${(e.strengths||[]).map(s=>`<li>${s}</li>`).join("")}</ul>
+  <h3 style="margin-top:18px">ما كان يمكن أن يكون أفضل</h3>
+  <ul class="fixlist">${(e.improvements||[]).map(x=>
+    `<li>${x.point}<span class="alt">بدلاً منها: «${x.alternative}»</span></li>`).join("")}</ul>
+ </div>
+
+ <div class="row">
+  ${p?'<button class="btn" id="ev-badge">استلم شارتك</button>':''}
+  <button class="btn ghost" id="ev-again">حوار جديد مع ضيف آخر</button>
+  <button class="btn ghost sm" id="ev-train">راجع التدريب</button>
+ </div>`;
+ if(p)$("ev-badge").onclick=()=>{renderBadge();show("s-badge",3)};
+ $("ev-again").onclick=()=>{renderGuests();show("s-pick",2)};
+ $("ev-train").onclick=()=>{renderMods();show("s-train",1)};
+}
+
+/* ═══ BADGE ═══ */
+function mkBadge(){
+ const n="AMB-26-"+Math.random().toString(36).slice(2,7).toUpperCase();
+ return {id:n,date:new Date().toLocaleDateString("ar-SA-u-nu-latn",{year:"numeric",month:"long",day:"numeric"})};
+}
+function sealSVG(){
+ const R=150,cx=160,cy=160;
+ const oct=Array.from({length:8},(_,i)=>{const a=-Math.PI/2+i*Math.PI/4;
+  return[(cx+R*Math.cos(a)).toFixed(1),(cy+R*Math.sin(a)).toFixed(1)].join(",")}).join(" ");
+ const oct2=Array.from({length:8},(_,i)=>{const a=-Math.PI/2+i*Math.PI/4+Math.PI/8;
+  return[(cx+(R-14)*Math.cos(a)).toFixed(1),(cy+(R-14)*Math.sin(a)).toFixed(1)].join(",")}).join(" ");
+ let lat="";
+ for(let i=0;i<8;i++){const a=-Math.PI/2+i*Math.PI/4;
+  lat+=`<line x1="${cx+(R-30)*Math.cos(a)}" y1="${cy+(R-30)*Math.sin(a)}" x2="${cx+(R-52)*Math.cos(a)}" y2="${cy+(R-52)*Math.sin(a)}" stroke="#C89544" stroke-width="1.5" opacity=".6"/>`}
+ return `<svg class="seal" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="شارة سفير رِفادة">
+  <polygon points="${oct}" fill="#0E3B3E" stroke="#C89544" stroke-width="2.5" class="draw"/>
+  <polygon points="${oct2}" fill="none" stroke="#C89544" stroke-width="1" opacity=".55"/>
+  <circle cx="${cx}" cy="${cy}" r="92" fill="none" stroke="#C89544" stroke-width="1" opacity=".45"/>
+  ${lat}
+  <text x="${cx}" y="126" text-anchor="middle" fill="#C89544" font-family="IBM Plex Mono,monospace" font-size="11" letter-spacing="4">RIFADA</text>
+  <text x="${cx}" y="172" text-anchor="middle" fill="#F1E8D9" font-family="Reem Kufi,sans-serif" font-size="44" font-weight="700">سَفير</text>
+  <text x="${cx}" y="200" text-anchor="middle" fill="#F1E8D9" font-family="Reem Kufi,sans-serif" font-size="17" opacity=".85">مُعتمَد</text>
+  <text x="${cx}" y="228" text-anchor="middle" fill="#C89544" font-family="IBM Plex Mono,monospace" font-size="10.5" letter-spacing="2">${S.badge.id}</text>
+ </svg>`;
+}
+function renderBadge(){
+ const e=S.eval;
+ $("badge-body").innerHTML=`
+ <h1 style="font-size:30px;text-align:center">${S.name}</h1>
+ <p class="lede" style="text-align:center;margin-bottom:6px">أنهيت الرحلة. الشارة الآن باسمك.</p>
+ <div class="sealwrap">${sealSVG()}</div>
+ <div class="card dim">
+  <div class="certmeta">
+   <div class="cm"><b>NAME</b><span>${S.name}</span></div>
+   <div class="cm"><b>ISSUED</b><span>${S.badge.date}</span></div>
+   <div class="cm"><b>SIMULATION</b><span>${e.overall}٪ · ${G().n}</span></div>
+   <div class="cm"><b>BASELINE</b><span>${S.overall}٪ · ${levelOf(S.overall)[1]}</span></div>
+  </div>
+  <div class="axlist" style="margin-top:18px">${AXK.map(k=>{const v=e.scores[k]??0;
+   return `<div class="axrow" style="border-color:#1D5A5C"><span class="axname" style="color:var(--stone)">${AX[k].n}</span>
+   <span class="axbar" style="background:#0B3134"><i style="width:${v}%;background:var(--brass)"></i></span>
+   <span class="axval" style="color:#8FAEAB">${v}٪</span></div>`}).join("")}</div>
+ </div>
+ <div class="card">
+  <h3>الشارة ليست نهاية</h3>
+  <p>ما يجعلها ذات قيمة هو أن يُعاد اختبارها. أعد المحاكاة مع ضيف مختلف — كل شخصية تضغط على محور آخر فيك. تسجيلك محفوظ وستُقارن نتائجك.</p>
+  <div class="row">
+   <button class="btn" id="b-again">جرّب ضيفاً مختلفاً</button>
+   <button class="btn ghost sm" id="b-copy">انسخ رقم الشارة</button>
+  </div>
+ </div>`;
+ $("b-again").onclick=()=>{renderGuests();show("s-pick",2)};
+ $("b-copy").onclick=async e2=>{
+  try{await navigator.clipboard.writeText(`${S.name} — سفير رِفادة معتمد — ${S.badge.id}`);
+   e2.target.textContent="نُسخ";setTimeout(()=>e2.target.textContent="انسخ رقم الشارة",1600)}catch(x){}
+ };
+}
+
+/* ═══ ORGANIZER DASHBOARD ═══ */
+const GATE="رفادة";
+let dashTimer=null,cohort=[],sessionUnlocked=false;
+
+$("open-dash").onclick=()=>{
+ show("s-dash");
+ if(sessionUnlocked){openDash()}
+ else{$("dash-gate").style.display="";$("dash-body").style.display="none";$("gate-in").focus()}
+};
+$("gate-back").onclick=()=>backFromDash();
+$("gate-go").onclick=()=>{
+ const v=$("gate-in").value.trim();
+ if(v!==GATE){$("gate-err").innerHTML='<div class="err">الرمز غير صحيح.</div>';return}
+ sessionUnlocked=true;$("gate-err").innerHTML="";openDash();
+};
+$("gate-in").addEventListener("keydown",e=>{if(e.key==="Enter")$("gate-go").click()});
+
+function backFromDash(){
+ clearInterval(dashTimer);dashTimer=null;
+ const t=S.scores?(S.badge?"s-badge":"s-train"):"s-welcome";
+ if(t==="s-badge")renderBadge();if(t==="s-train")renderMods();
+ show(t,S.stage);
+}
+
+function openDash(){
+ $("dash-gate").style.display="none";$("dash-body").style.display="";
+ loadCohort();
+ clearInterval(dashTimer);
+ dashTimer=setInterval(()=>{if($("s-dash").classList.contains("live"))loadCohort(true)},20000);
+}
+
+async function loadCohort(quiet){
+ if(!canStore){
+  $("dash-body").innerHTML=`<div class="card"><div class="empty"><h3>التخزين المشترك غير متاح هنا</h3>
+   <p class="muted">اللوحة تحتاج تشغيل المنصة داخل بيئة تدعم حفظ بيانات المجموعة.</p></div></div>`;return;
+ }
+ if(!quiet)$("dash-body").innerHTML=`<div class="card"><p style="text-align:center;margin:0">جارٍ قراءة سجل المجموعة…</p></div>`;
+ try{
+  const r=await fetch("/api/cohort");
+  if(!r.ok)throw new Error(r.status);
+  const d=await r.json();
+  cohort=Array.isArray(d.participants)?d.participants:[];
+  renderDash();
+ }catch(e){
+  $("dash-body").innerHTML=`<div class="dashbar"><button class="btn ghost sm" id="d-retry">أعد المحاولة</button>
+   <button class="btn ghost sm" id="d-back">رجوع للمنصة</button></div>
+   <div class="err">تعذّر قراءة سجل المجموعة. تأكد أن دالة cohort منشورة وأن Netlify Blobs مفعّل على المشروع.</div>`;
+  $("d-retry").onclick=()=>loadCohort();$("d-back").onclick=backFromDash;
+ }
+}
+
+const avg=a=>a.length?Math.round(a.reduce((x,y)=>x+y,0)/a.length):0;
+const ago=t=>{const m=Math.round((Date.now()-t)/60000);
+ return m<1?"الآن":m<60?`قبل ${m} د`:m<1440?`قبل ${Math.round(m/60)} س`:`قبل ${Math.round(m/1440)} ي`};
+
+function renderDash(){
+ const N=cohort.length;
+ if(!N){
+  $("dash-body").innerHTML=`<div class="dashbar"><span class="pulse"><s></s>LIVE</span>
+   <button class="btn ghost sm" id="d-back">رجوع للمنصة</button></div>
+   <div class="card"><div class="empty"><h3>لا أحد بدأ بعد</h3>
+   <p class="muted">شارك رابط المنصة مع المجموعة. تظهر النتائج هنا لحظة إنهاء أول مشارك للقياس، وتُحدَّث كل ٢٠ ثانية.</p></div></div>`;
+  $("d-back").onclick=backFromDash;return;
+ }
+ const withBase=cohort.filter(p=>p.baseline),
+       gated=cohort.filter(p=>(p.modules||[]).length>=3),
+       withSim=cohort.filter(p=>p.sim),
+       amb=cohort.filter(p=>p.badge);
+
+ /* funnel */
+ const steps=[["أنهوا القياس",withBase.length,false],["أنهوا ٣ وحدات",gated.length,false],
+              ["خاضوا المحاكاة",withSim.length,false],["نالوا الشارة",amb.length,true]];
+ let funnel="";
+ steps.forEach((s,i)=>{
+  const pct=Math.round(s[1]/N*100);
+  funnel+=`<div class="fn"><span class="fn-l">${s[0]}</span>
+   <span class="fn-t"><i class="${s[2]?'b':''}" style="width:${pct}%"></i></span>
+   <span class="fn-v">${s[1]} · ${pct}٪</span></div>`;
+  if(i<steps.length-1){const d=s[1]-steps[i+1][1];
+   if(d>0)funnel+=`<div class="drop">↓ توقّف ${d} هنا</div>`}
+ });
+
+ /* axis: baseline vs observed */
+ let pairs="";
+ AXK.forEach(k=>{
+  const b=avg(withBase.map(p=>p.baseline.scores[k]??0));
+  const s=withSim.length?avg(withSim.map(p=>(p.sim.scores||{})[k]??0)):null;
+  const d=s===null?null:s-b;
+  pairs+=`<div class="pair"><div class="pair-h"><span>${AX[k].n}</span>
+   <span class="delta ${d===null?'na':d>=0?'up':'dn'}">${d===null?"—":(d>0?"+":"")+d}</span></div>
+   <div class="mini"><u>قياس</u><div><i class="base" style="width:${b}%"></i></div><em>${b}٪</em></div>
+   <div class="mini"><u>أداء</u><div><i class="perf" style="width:${s||0}%"></i></div><em>${s===null?"—":s+"٪"}</em></div></div>`;
+ });
+
+ /* room gap */
+ const gapCount={};AXK.forEach(k=>gapCount[k]=0);
+ withBase.forEach(p=>{
+  let lo=AXK[0];AXK.forEach(k=>{if(p.baseline.scores[k]<p.baseline.scores[lo])lo=k});
+  gapCount[lo]++;});
+ const topGap=[...AXK].sort((a,b)=>gapCount[b]-gapCount[a])[0];
+ const gapTxt=withBase.length&&gapCount[topGap]
+  ?`<div class="callout"><p><b>${gapCount[topGap]}</b> من ${withBase.length} مشاركاً فجوتهم الأولى في <b>${AX[topGap].n}</b> — ${AX[topGap].d}. هذه جلستك الجماعية القادمة.</p></div>`:"";
+
+ /* guests */
+ let grows="";
+ GUESTS.forEach(g=>{
+  const rs=withSim.filter(p=>p.sim.guest===g.id);
+  if(!rs.length)return;
+  const pass=rs.filter(p=>p.sim.passed).length;
+  grows+=`<tr><td class="nm">${g.n}</td><td>${rs.length}</td>
+   <td>${pass} / ${rs.length}</td><td>${avg(rs.map(p=>p.sim.overall))}٪</td></tr>`;
+ });
+ const guestTbl=grows?`<div class="tblwrap"><table><thead><tr>
+   <th>الضيف</th><th>اختير</th><th>نجح</th><th>متوسط الأداء</th></tr></thead><tbody>${grows}</tbody></table></div>`
+  :`<p class="muted">لم يخض أحد محاكاة بعد.</p>`;
+
+ /* participants */
+ const rows=cohort.slice().sort((a,b)=>b.ts-a.ts).map(p=>{
+  const lv=p.baseline?levelOf(p.baseline.overall)[1]:"—";
+  const st=p.badge?'<span class="pill amb">سفير معتمد</span>'
+    :p.sim?(p.sim.passed?'<span class="pill amb">اجتاز</span>':'<span class="pill no">لم يجتز</span>')
+    :'<span class="pill wait">في الطريق</span>';
+  return `<tr><td class="nm">${esc(p.name)}</td>
+   <td>${p.baseline?p.baseline.overall+"٪":"—"}</td><td>${lv}</td>
+   <td>${(p.modules||[]).length} / ٥</td>
+   <td>${p.sim?p.sim.overall+"٪":"—"}</td><td>${st}</td>
+   <td style="color:#9AA6A4">${ago(p.ts)}</td></tr>`}).join("");
+
+ $("dash-body").innerHTML=`
+ <div class="dashbar"><span class="pulse"><s></s>يُحدَّث كل ٢٠ ثانية</span>
+  <button class="btn ghost sm" id="d-refresh">حدّث الآن</button>
+  <button class="btn ghost sm" id="d-back">رجوع للمنصة</button></div>
+
+ <div class="tiles">
+  <div class="tile"><b>${N}</b><span>مشارك مسجّل</span></div>
+  <div class="tile"><b>${withBase.length}</b><span>أنهى القياس</span></div>
+  <div class="tile"><b>${withSim.length}</b><span>خاض المحاكاة</span></div>
+  <div class="tile hi"><b>${amb.length}</b><span>سفير معتمد</span></div>
+ </div>
+
+ <div class="card">
+  <span class="eyebrow">قمع الرحلة</span>
+  <h2>أين تتوقف المجموعة</h2>
+  ${funnel}
+ </div>
+
+ <div class="card">
+  <span class="eyebrow">أثر التدريب</span>
+  <h2>القياس الذاتي مقابل الأداء المُلاحَظ</h2>
+  <p class="muted">الشريط الأول من اختيارات المشارك في القياس، والثاني من تقييم أدائه الفعلي في المحاكاة. المقياسان مختلفان في طبيعتهما، فاقرأ الفارق كمؤشر اتجاه لا كقياس دقيق.</p>
+  ${pairs}
+ </div>
+
+ ${gapTxt}
+
+ <div class="card">
+  <span class="eyebrow">صعوبة الشخصيات</span>
+  <h2>أي ضيف كشف المجموعة</h2>
+  ${guestTbl}
+ </div>
+
+ <div class="card">
+  <span class="eyebrow">السجل</span>
+  <h2>المشاركون</h2>
+  <div class="tblwrap"><table><thead><tr>
+   <th>الاسم</th><th>القياس</th><th>المستوى</th><th>الوحدات</th><th>المحاكاة</th><th>الحالة</th><th>آخر نشاط</th>
+  </tr></thead><tbody>${rows}</tbody></table></div>
+  <div class="row"><button class="btn sm" id="d-csv">نزّل CSV</button>
+   <button class="btn ghost sm" id="d-copy">انسخ الجدول</button></div>
+ </div>`;
+
+ $("d-back").onclick=backFromDash;
+ $("d-refresh").onclick=()=>loadCohort();
+ $("d-csv").onclick=()=>dumpCSV(true);
+ $("d-copy").onclick=e=>{dumpCSV(false);e.target.textContent="نُسخ";
+  setTimeout(()=>e.target.textContent="انسخ الجدول",1600)};
+}
+function esc(s){return String(s).replace(/[<>&]/g,c=>({"<":"&lt;",">":"&gt;","&":"&amp;"}[c]))}
+
+function dumpCSV(download){
+ const head=["الاسم","القياس الكلي","المستوى","وحدات مكتملة","الضيف","درجة المحاكاة","اجتاز","رقم الشارة",
+  ...AXK.map(k=>"قياس: "+AX[k].n),...AXK.map(k=>"أداء: "+AX[k].n)];
+ const lines=[head.join(",")];
+ cohort.slice().sort((a,b)=>b.ts-a.ts).forEach(p=>{
+  const g=p.sim?(GUESTS.find(x=>x.id===p.sim.guest)||{}).n||"":"";
+  const row=[p.name,p.baseline?p.baseline.overall:"",p.baseline?levelOf(p.baseline.overall)[1]:"",
+   (p.modules||[]).length,g,p.sim?p.sim.overall:"",p.sim?(p.sim.passed?"نعم":"لا"):"",p.badge||"",
+   ...AXK.map(k=>p.baseline?p.baseline.scores[k]:""),
+   ...AXK.map(k=>p.sim&&p.sim.scores?p.sim.scores[k]:"")];
+  lines.push(row.map(v=>`"${String(v).replace(/"/g,'""')}"`).join(","));
+ });
+ const csv="\uFEFF"+lines.join("\n");
+ if(download){
+  try{const b=new Blob([csv],{type:"text/csv;charset=utf-8"}),u=URL.createObjectURL(b),a=document.createElement("a");
+   a.href=u;a.download="rifada-cohort.csv";a.click();URL.revokeObjectURL(u);return}catch(e){}
+ }
+ try{navigator.clipboard.writeText(csv)}catch(e){}
+}
+
+/* ═══ RESUME ═══ */
+(async()=>{
+ rail();
+ const old=await load();
+ if(old&&old.name){
+  S=Object.assign(S,old);
+  $("in-name").value=S.name;$("go-reset").style.display="inline-flex";
+  const r=$("s-welcome").querySelector(".card:last-of-type");
+  const note=document.createElement("p");note.className="muted";note.style.marginTop="12px";
+  note.textContent=`لديك رحلة محفوظة باسم ${S.name}.`;
+  r.insertBefore(note,r.querySelector(".row"));
+  if(S.scores){renderResult();renderMods();
+   const b=document.createElement("button");b.className="btn ghost sm";b.textContent="أكمل من حيث توقفت";
+   b.onclick=()=>{S.badge&&S.eval?.passed?(renderBadge(),show("s-badge",3)):(renderMods(),show("s-train",1))};
+   r.querySelector(".row").appendChild(b);}
+ }
+})();
+})();
+</script>
+
+</body>
+</html>
